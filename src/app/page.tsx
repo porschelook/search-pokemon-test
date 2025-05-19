@@ -11,14 +11,14 @@ export default function Home() {
       }}>Search Pokémon</h1>
 
 
-       <Suspense fallback={<p>Loading search...</p>}>
+      <Suspense> 
         <SearchInput />
       </Suspense>
 
-      <Suspense fallback={<p>Loading results...</p>}>
+      <Suspense>
         <PokemonResult />
       </Suspense>
-      
+
     </main>
   )
 }
