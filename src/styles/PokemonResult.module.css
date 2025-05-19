@@ -1,0 +1,119 @@
+.pokemonContainer {
+  background: linear-gradient(145deg, #f0f4f8, #ffffff);
+  border: 1px solid #d1dce5;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  max-width: 720px;
+  margin: 2rem auto;
+  transition: transform 0.3s ease;
+}
+
+.pokemonContainer:hover {
+  transform: translateY(-4px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pokemonImage {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  border: 2px solid #cbd5e0;
+  background-color: #ffffff;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2d3748;
+}
+
+.subTitle {
+  font-size: 1rem;
+  color: #718096;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #cbd5e0;
+  padding-bottom: 0.25rem;
+}
+
+.attackGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.attackCategory {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2b6cb0;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.attackCategory + ul,
+.attackCategory ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.attackGrid li {
+  margin: 0.3rem 0;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+.evolutions {
+  margin-top: 2rem;
+}
+
+.evolutionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.evolutionItem {
+  cursor: pointer;
+  text-align: center;
+  color: #2b6cb0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #edf2f7;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  width: 120px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+}
+
+.evolutionItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background-color: #e2e8f0;
+}
+
+.evolutionImage {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background: white;
+  padding: 0.25rem;
+}
