@@ -1,5 +1,6 @@
 import SearchInput from '@/components/SearchInput'
 import PokemonResult from '@/components/PokemonResult'
+import { Suspense } from 'react'
 
 export default function Home() {
   return (
@@ -8,8 +9,15 @@ export default function Home() {
         display: 'flex',
         justifyContent: 'center',
       }}>Search Pokémon</h1>
-      <SearchInput />
-      <PokemonResult />
+
+       <Suspense fallback={<p>Loading search...</p>}>
+        <SearchInput />
+      </Suspense>
+
+      <Suspense fallback={<p>Loading results...</p>}>
+        <PokemonResult />
+      </Suspense>
+      
     </main>
   )
 }
