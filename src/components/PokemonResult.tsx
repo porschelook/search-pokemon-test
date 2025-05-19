@@ -8,7 +8,7 @@ import client from '@/lib/apollo-client'
 export default function PokemonResult() {
   const searchParams = useSearchParams()
   const router = useRouter()
-  const name = searchParams.get('name') || ''
+  const name = searchParams.get('name')  
 
   const { data, loading, error } = useQuery(GET_POKEMON_BY_NAME, {
     variables: { name },
