@@ -22,17 +22,19 @@ const mockPokemons: Pokemon[] = [
 
 describe("Pokemon Type Assertions", () => {
   it("should have Bulbasaur as a Grass type", () => {
-    const bulbasaur = mockPokemons.find(p => p.name === "Bulbasaur");
-    expect(bulbasaur?.types).toContain("Grass");
+    const bulbasaur = mockPokemons.find((p) => p.name === "Bulbasaur");
+    expect(bulbasaur?.types).toEqual(
+      expect.arrayContaining(["Grass", "Poison"])
+    );
   });
 
   it("should have Charmander as a Fire type", () => {
-    const charmander = mockPokemons.find(p => p.name === "Charmander");
+    const charmander = mockPokemons.find((p) => p.name === "Charmander");
     expect(charmander?.types).toContain("Fire");
   });
 
   it("should have Squirtle as a Water type", () => {
-    const squirtle = mockPokemons.find(p => p.name === "Squirtle");
+    const squirtle = mockPokemons.find((p) => p.name === "Squirtle");
     expect(squirtle?.types).toContain("Water");
   });
 });

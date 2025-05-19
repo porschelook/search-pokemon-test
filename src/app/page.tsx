@@ -10,6 +10,7 @@ export default function Home() {
         justifyContent: 'center',
       }}>Search Pokémon</h1>
 
+
        <Suspense fallback={<p>Loading search...</p>}>
         <SearchInput />
       </Suspense>

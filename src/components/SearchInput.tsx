@@ -22,12 +22,17 @@ export default function SearchInput() {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search Pokémon by name..."
+        placeholder="Search Pokémon by name... "
+        title="Try typing 'Pikachu', 'Charmander', or 'Bulbasaur'"
         className={styles.searchInput}
       />
+       
       <button type="submit" className={styles.searchButton}>
         Search
       </button>
+
     </form>
+
+
   )
 }
