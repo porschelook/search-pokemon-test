@@ -8,7 +8,7 @@ import client from '@/lib/apollo-client'
 export default function PokemonResult() {
   const searchParams = useSearchParams()
   const router = useRouter()
-  const name = searchParams.get('name')  
+  const name = searchParams.get('name')
 
   const { data, loading, error } = useQuery(GET_POKEMON_BY_NAME, {
     variables: { name },
@@ -31,14 +31,38 @@ export default function PokemonResult() {
   if (error || !data?.pokemon) return <p style={messageStyle}>Pokémon not found.</p>
 
   const pokemon = data.pokemon
+  const typeEmojiMap: Record<string, string> = {
+    Grass: '🌱',
+    Fire: '🔥',
+    Water: '💧',
+    Bug: '🐛',
+    Normal: '⚪',
+    Poison: '☠️',
+    Electric: '⚡',
+    Ground: '⛰️',
+    Fairy: '🧚',
+    Fighting: '🥊',
+    Psychic: '🧠',
+    Rock: '🪨',
+    Ghost: '👻',
+    Ice: '❄️',
+    Dragon: '🐉',
+    Steel: '🛡️',
+    Dark: '🌑',
+  }
 
+  const typeR = pokemon.types.map((type: string) => typeEmojiMap[type] || type)
+  const combined = pokemon.types.map((type: string, index: number) => `${type} ${typeR[index]}`).join(', ');
+  
   return (
     <div className={styles.pokemonContainer}>
       <div className={styles.header}>
         <img src={pokemon.image} alt={pokemon.name} className={styles.pokemonImage} />
         <div>
           <h2 className={styles.title}>{pokemon.name} #{pokemon.number}</h2>
-          <p className={styles.subTitle}>{pokemon.types.join(', ')}</p>
+          {/* <p className={styles.subTitle}>{pokemon.types.join(', ')} {typeR}</p> */}
+          <p className={styles.subTitle}>{combined}</p>
+
 
         </div>
       </div>
