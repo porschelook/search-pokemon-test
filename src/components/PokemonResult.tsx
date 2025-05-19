@@ -17,14 +17,14 @@ export default function PokemonResult() {
   })
 
   const messageStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '200px', // or use '100%' or any fixed height you prefer
-  fontSize: '1.2rem',
-  fontWeight: '500',
-  color: 'white',
-}
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '200px', // or use '100%' or any fixed height you prefer
+    fontSize: '1.2rem',
+    fontWeight: '500',
+    color: 'white',
+  }
 
   if (!name) return <p style={messageStyle}>Search a Pokémon to see results.</p>
   if (loading) return <p style={messageStyle}>Loading...</p>
@@ -48,18 +48,18 @@ export default function PokemonResult() {
         <div>
           <h4 className={styles.attackCategory}>Fast</h4>
           <ul>
-            {pokemon.attacks.fast.map((a) => (
-              <li key={`${a.name}-${a.type}`}>{a.name} ({a.type}) - {a.damage}</li>
+            {pokemon.attacks.fast.map((attack: { name: string; type: string; damage: number }) => (
+              <li key={`${attack.name}-${attack.type}`}>{attack.name} ({attack.type}) - {attack.damage}</li>
             ))}
           </ul>
         </div>
         <div>
           <h4 className={styles.attackCategory}>Special</h4>
           <ul>
-            {pokemon.attacks.special.map((a) => (
+            {pokemon.attacks.special.map((attack: { name: string; type: string; damage: number }) => (
 
 
-              <li key={`${a.name}-${a.type}`}>{a.name} ({a.type}) - {a.damage}  </li>
+              <li key={`${attack.name}-${attack.type}`}>{attack.name} ({attack.type}) - {attack.damage}  </li>
 
             ))}
           </ul>
@@ -70,7 +70,7 @@ export default function PokemonResult() {
         <div className={styles.evolutions}>
           <h3 className={styles.sectionTitle}>Evolutions</h3>
           <div className={styles.evolutionList}>
-            {pokemon.evolutions.map((evo) => (
+            {pokemon.evolutions.map((evo: { id: string; name: string; image: string }) => (
               <div
                 key={evo.id}
                 className={styles.evolutionItem}
